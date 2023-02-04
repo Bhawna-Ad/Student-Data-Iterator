@@ -34,8 +34,9 @@ public class Iterator {
 
     public void display() {
         Node node = head.next;
+        System.out.println("Enrollment Number" + "      " + "Name" + "      " + "Age" + "       " + "Courses");
         while(node != null) {
-            System.out.println(node.val + " " + node.data.name + " " + node.data.age + " " + Arrays.toString(node.data.courses));
+            System.out.println(node.val + "             " + node.data.name + "      " + node.data.age + "       " + Arrays.toString(node.data.courses));
             node = node.next;
         }
     }
