@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Iterator {
     private Node head;
@@ -27,6 +28,13 @@ public class Iterator {
     }
 
     public void insert(int val, Data data) {
+        Node temp = head.next;
+        while(temp != null) {
+            if(temp.val==val || temp.data.phn.equals(data.phn))
+                return;
+            temp = temp.next;
+        }
+
         Node node = new Node(val, data);
         tail.next = node;
         tail = tail.next;
@@ -34,9 +42,9 @@ public class Iterator {
 
     public void display() {
         Node node = head.next;
-        System.out.println("Enrollment Number" + "      " + "Name" + "      " + "Age" + "       " + "Courses");
+        System.out.println("Enrollment Number" + "      " + "Name" + "      " + "Age" + "       " + "Phone Number" + "       " + "Courses");
         while(node != null) {
-            System.out.println(node.val + "             " + node.data.name + "      " + node.data.age + "       " + Arrays.toString(node.data.courses));
+            System.out.println(node.val + "             " + node.data.name + "      " + node.data.age + "       " + node.data.phn + "       " + Arrays.toString(node.data.courses));
             node = node.next;
         }
     }
@@ -49,4 +57,6 @@ public class Iterator {
         ptr = ptr.next;
         return new Student(ptr.val, ptr.data);
     }
+
+
 }
